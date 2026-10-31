@@ -4,7 +4,7 @@ Proyecto 1 de la unidad **UD1 · Eyes on Target** (Hacking Ético). Mapa de la s
 
 - **Autor:** Eduardo Moreno Rodríguez ([@EduuMR73](https://github.com/EduuMR73))
 - **Objetivo:** programa de bug bounty de **GitLab** en HackerOne — <https://hackerone.com/gitlab>
-- **Fechas de reconocimiento:** del 2026-10-28 al 2026-10-31
+- **Fechas de reconocimiento:** del 28/10/2026 al 31/10/2026
 - **Herramienta de clasificación de alcance:** `scope-guard` de `aap-base` (misma que usa el agente)
 
 ## Por qué GitLab

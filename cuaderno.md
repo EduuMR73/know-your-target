@@ -175,6 +175,8 @@ por qué importa (HIPÓTESIS por el nombre, pendientes de confirmar en la técni
    · 2 subdominios llevan lo que parecen alias de personas (máquinas personales): se anota el patrón, sin publicar los nombres
 siguiente: resolver los 1048 para saber cuáles siguen vivos y a dónde apuntan (CNAME a terceros = fuera)
 
+> **TÉCNICA OPCIONAL del enunciado** ("resolver los subdominios y mirar de quién es la IP: ¿WAF/CDN o expuesto directo?"). Se aplica aquí (resolución DNS) y en la técnica 4 (propietario de la IP por ASN). Resultado: distingue los hosts tras Cloudflare de los expuestos directamente en GCP/AWS, base de los puntos de interés del mapa.
+
 2026-10-28 12:17 UTC · objetivo: los 1048 de dentro_sin_review.txt (consultas DNS normales, 10 en paralelo, unas 1000 en total)
 $ xargs -P 10 -I{} sh -c 'r=$(dig +short +time=2 +tries=1 {} A | tr "\n" " "); [ -n "$r" ] && echo "{} -> $r"' < dentro_sin_review.txt | sort > resueltos.txt
 -> vivos: 247 de 1048 (24 %)
