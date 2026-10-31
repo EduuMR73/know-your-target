@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:google:cloud_platform"],"hostnames":["mimir.ops.gke.gitlab.net","31.70.117.34.bc.googleusercontent.com","mimir.ops-gitlab-gke.us-east1.gitlab-ops.gke.gitlab.net"],"ip":"34.117.70.31","ports":[80,443],"tags":["cloud"],"vulns":[]}

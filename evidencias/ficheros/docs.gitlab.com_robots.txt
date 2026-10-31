@@ -1,0 +1,17 @@
+User-agent: Googlebot
+Disallow: /review-mr
+Disallow: /upstream-review-mr
+Disallow: /1
+Disallow: /2
+Disallow: /3
+Disallow: /*.md$
+
+User-agent: *
+# Block crawlers from review apps
+Disallow: /review-mr
+Disallow: /upstream-review-mr
+# Block crawlers from released versions
+Disallow: /1
+Disallow: /2
+Disallow: /3
+Sitemap: https://docs.gitlab.com/sitemap.xml

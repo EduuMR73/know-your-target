@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:google:cloud_platform"],"hostnames":["29.91.96.34.bc.googleusercontent.com","alertmanager-0.ops.gke.gitlab.net","alertmanager-2.ops.gke.gitlab.net","alertmanager-1.ops.gke.gitlab.net"],"ip":"34.96.91.29","ports":[80,443],"tags":["cloud","pqc"],"vulns":[]}

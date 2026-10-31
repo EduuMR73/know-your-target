@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:google:cloud_platform"],"hostnames":["corpsec-devices-pki.gitlab.net","137.124.96.34.bc.googleusercontent.com"],"ip":"34.96.124.137","ports":[80,443],"tags":["cloud","pqc"],"vulns":[]}

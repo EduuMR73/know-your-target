@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:openbsd:openssh:8.9p1","cpe:/o:canonical:ubuntu_linux"],"hostnames":["75.165.73.34.bc.googleusercontent.com"],"ip":"34.73.165.75","ports":[22,80,443,2222],"tags":["cloud"],"vulns":[]}

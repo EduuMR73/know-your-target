@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:amazon:elastic_load_balancing"],"hostnames":["ec2-3-149-91-130.us-east-2.compute.amazonaws.com"],"ip":"3.149.91.130","ports":[80,443],"tags":["cloud"],"vulns":[]}

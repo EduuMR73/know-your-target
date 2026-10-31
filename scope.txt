@@ -1,0 +1,37 @@
+# scope.txt · programa: GitLab (HackerOne) · consultado: 2026-10-28
+# https://hackerone.com/gitlab/policy_scopes
+# dentro de alcance:
+*.gitlab.net
+*.gitlab.org
+*.gitlap.com
+gitlab.com
+registry.gitlab.com
+customers.gitlab.com
+about.gitlab.com
+docs.gitlab.com
+design.gitlab.com
+advisories.gitlab.com
+# fuera de alcance (no se toca):
+!*.runway.gitlab.net
+!runway.gitlab.net
+!*.gitlab-private.org
+!*.gitlab.cn
+!*.service-now.com
+!alerts.gitlab.com
+!aptly.gitlab.com
+!dashboards.gitlab.com
+!federal-support.gitlab.com
+!forum.gitlab.com
+!ir.gitlab.com
+!levelup.gitlab.com
+!packages.gitlab.com
+!partners.gitlab.com
+!shop.gitlab.com
+!status.gitlab.com
+!support.gitlab.com
+!translate.gitlab.com
+!us-federal-gitlab.com
+!gitlab.biterg.io
+!gitlabdemo.cloud
+!gitlabsandbox.net
+!gitlabtraining.cloud

@@ -1,0 +1,247 @@
+10k-hybrid-aws-services.testbed.gitlab.net -> 18.210.182.34 
+10k.testbed.gitlab.net -> 34.73.165.75 
+1k.testbed.gitlab.net -> 35.196.18.43 
+2k.testbed.gitlab.net -> 35.231.125.151 
+3k-hybrid-aws-services.testbed.gitlab.net -> 52.0.223.85 
+50k.testbed.gitlab.net -> 35.237.211.103 
+about.gitlab.com -> 104.18.28.129 104.18.29.129 
+advisories.gitlab.com -> pages.gitlab.io. 35.185.44.232 
+ai.corp.security.gitlab.net -> gitlab-com.gitlab.io. 35.185.44.232 
+ai-gateway-eks.svc.gitlab.net -> 104.18.16.158 104.18.17.158 
+ai-gateway-shm.svc.gitlab.net -> 104.18.22.78 104.18.23.78 
+alertmanager-0.ops.gke.gitlab.net -> 34.102.202.123 
+alertmanager-1.ops.gke.gitlab.net -> 34.149.42.11 
+alertmanager-2.ops.gke.gitlab.net -> 34.96.91.29 
+alerts.gitlab.net -> 34.120.36.114 
+alexandria.sec.gitlab.net -> 34.111.233.241 
+analytics-eventsdot.tenants.observability.gke.gitlab.net -> 35.211.175.29 
+api.corpsecdevices.gitlab.net -> 34.102.251.100 
+api.gitlab.org -> 188.114.96.5 188.114.97.5 
+api.package-hunter-live.sec.gitlab.net -> 34.41.232.203 
+apt-mirror.gprd.gke.gitlab.net -> 10.216.8.164 
+apt-mirror.gstg.gke.gitlab.net -> 10.224.34.39 
+argocd.gitlab.net -> 172.64.147.68 104.18.40.188 
+artifact-registry-gke.svc.gitlab.net -> 104.18.1.49 104.18.0.49 
+atlantis-com-clickhouse-cloud.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-com-elastic-cloud.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-com-grafana-management.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-com-infra-mgmt.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-com-runway-provisioner.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-ops-cells-tissue.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-ops-config-mgmt.ops.gke.gitlab.net -> 34.160.239.33 
+atlantis-ops-topo-svc.ops.gke.gitlab.net -> 34.160.239.33 
+autoflow.gitlab.net -> 35.185.44.232 
+autoflow-gke.svc.gitlab.net -> 104.18.8.191 104.18.9.191 
+bench.gitlab.net -> bench-view-e779dc.gitlab.io. 35.185.44.232 
+bifrost.tools.security.gitlab.net -> gitlab-com.gitlab.io. 35.185.44.232 
+billing.prdsub.gitlab.net -> 104.18.35.12 172.64.152.244 
+billing.stgsub.gitlab.net -> 104.18.38.18 172.64.149.238 
+bizops.gitlab.net -> 35.199.154.117 
+bouncer.sec.gitlab.net -> bouncer.trust-safety-live.sec.gitlab.net. 
+catalog-gke.svc.gitlab.net -> 104.18.31.128 104.18.30.128 
+cloudflare.terraform.gitlab.net -> gitlab-com.gitlab.io. 35.185.44.232 
+comp-calculator.gitlab.net -> 34.138.170.206 
+conservatory.gitlab.net -> 34.138.170.206 
+corpsec-dashboard.gitlab.net -> 34.49.153.161 
+corpsecdevices.gitlab.net -> corpsecdevices-gitlab-io-a3d14d.gitlab.io. 35.185.44.232 
+corpsec-devices-ingest.gitlab.net -> 136.68.210.101 
+corpsec-devices-pki-dev.gitlab.net -> 8.233.58.188 
+corpsec-devices-pki.gitlab.net -> 34.96.124.137 
+corpsec-fleet-hooks.gitlab.net -> 34.96.125.223 
+corpsec-munki-repo.gitlab.net -> 34.50.155.139 
+corpsec-vdi.gitlab.net -> 136.110.234.63 
+current-test.imander-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+current-test.test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+customers.gitlab.com -> 104.18.39.11 172.64.148.245 
+dashboards.gitlab.net -> 104.18.40.188 172.64.147.68 
+dashboards.pre.gitlab.net -> 104.18.40.188 172.64.147.68 
+dast-24973824-dast-default.workops.gitlab.net -> 35.223.212.132 
+db-snowplow.trx.gitlab.net -> 34.149.136.31 
+default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+default.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+delivery-metrics.ops.gitlab.net -> 34.149.244.4 
+design.gitlab.com -> gitlab-org.gitlab.io. 35.185.44.232 
+dev.gitlab.org -> 34.139.135.192 
+docs.gitlab.com -> 104.18.9.44 104.18.8.44 
+duo-chat-widget-proxy.svc.gitlab.net -> 104.18.2.11 104.18.3.11 
+dwarfs.tools.security.gitlab.net -> gitlab-com.gitlab.io. 35.185.44.232 
+engineering-portal.svc.gitlab.net -> 104.18.25.65 104.18.24.65 
+events.gitlab.net -> snowplowprdnlb-1490493263.us-east-2.elb.amazonaws.com. 77.113.79.130 18.219.104.126 18.221.187.227 18.224.241.217 3.151.120.142 3.149.91.130 77.112.131.85 3.13.42.140 
+events-stg.gitlab.net -> snowplowstgnlb-758150657.us-west-2.elb.amazonaws.com. 100.22.214.48 184.34.202.116 32.190.205.251 
+example.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+example.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+feature-flags.svc.gitlab.net -> 104.18.22.10 104.18.23.10 
+feature-flag.svc.gitlab.net -> 104.18.21.246 104.18.20.246 
+feedbackbot.feedbackbot.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+feedbackbot.feedbackbot.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+feedbackbot.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+feedbackbot.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+foo.adietrich-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+foo.test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+frontend.video-scanner-dev.sec.gitlab.net -> 34.8.6.44 
+frontend.video-scanner-live.sec.gitlab.net -> 34.54.4.199 
+gatekeeper.tools.security.gitlab.net -> gitlab-com.gitlab.io. 35.185.44.232 
+gitlab.18-11-stable-security-get.env.release.gitlab.net -> 35.198.168.197 
+gitlab.19-0-stable-security-get.env.release.gitlab.net -> 34.179.141.159 
+gitlab.19-1-stable-security-get.env.release.gitlab.net -> 34.40.22.145 
+gitlab.19-2-stable-security-get.env.release.gitlab.net -> 34.107.12.94 
+gitlab.19-3-stable-security-get.env.release.gitlab.net -> 136.92.0.142 
+gitlab.19-4-stable-security-get.env.release.gitlab.net -> 34.40.98.152 
+gitlab.19-5-stable-security-get.env.release.gitlab.net -> 34.89.245.165 
+gitlab-com-business-ops-enterprise-apps-integrations-workops.workops.gitlab.net -> 35.223.212.132 
+gitlab-com-business-technology-enterprise-apps-integrations-wor.workops.gitlab.net -> 35.223.212.132 
+gitlab.custom-models-offline-get.env.release.gitlab.net -> 35.198.72.95 
+gitlab.custom-models-online-get.env.release.gitlab.net -> 34.40.97.141 
+gitlab.jburnett.gitlab.net -> 104.18.40.188 172.64.147.68 
+gitlab-org-gitlab-services-version-gitlab-com-staging.version-staging.gitlab.org -> 34.73.118.39 
+gitlab-org-gitlab-services-version-gitlab-com.version-production.gitlab.org -> 35.190.167.255 
+gitway-gprd.tenants.observability.gke.gitlab.net -> 35.211.216.242 
+gketest1.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+gketest2.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+gke-test2.witest.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+gketest3.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+gketest.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+gke-test.witest.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+glgo-eks.svc.gitlab.net -> 104.18.1.190 104.18.0.190 
+glgo-gke.svc.gitlab.net -> 104.18.17.49 104.18.16.49 
+go-svc-template-eks.svc.gitlab.net -> 104.18.7.219 104.18.6.219 
+grafana.northstar.autoflow.gitlab.net -> 35.241.10.8 
+h1-attachments-cloudrun.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+h1-attachments.primary.secauto-dev.sec.gitlab.net -> 34.111.25.198 
+h1-attachments.primary.secauto-live.sec.gitlab.net -> 34.102.249.193 
+h1bot.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+h1bot.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+h1-import.h1-import.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+h1-import.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+h1-import.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+h1.sec.gitlab.net -> h1-attachments.primary.secauto-live.sec.gitlab.net. 34.102.249.193 
+hb1.example.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hba1.example.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello2.example.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello2.example.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+hello.adietrich-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello.adietrich-test.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+hello.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello.default.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+hello.example2.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello.example.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello.example.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+hello.foo.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+hello.foo.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+hello.test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+iam-auth-ext-gke.svc.gitlab.net -> 104.18.28.19 104.18.29.19 
+iam-auth-gke-grpc.svc.gitlab.net -> 104.18.11.35 104.18.10.35 
+iam-data-gke-grpc.svc.gitlab.net -> 104.18.19.234 104.18.18.234 
+jdsalaro.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+jomartin-dev-eks.svc.gitlab.net -> 104.18.6.216 104.18.7.216 
+jomartin-dev-gke.svc.gitlab.net -> 104.18.18.88 104.18.19.88 
+julietandethan.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+kas.10k-hybrid-aws-services.testbed.gitlab.net -> 10k-hybrid-aws-services.testbed.gitlab.net. 18.210.182.34 
+kas.3k-hybrid-aws-services.testbed.gitlab.net -> 3k-hybrid-aws-services.testbed.gitlab.net. 52.0.223.85 
+kas.ops.gitlab.net -> 35.238.98.95 
+klaxon.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+klaxon.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+le-24973824.workops.gitlab.net -> 35.223.212.132 
+le-43521838.version-production.gitlab.org -> 35.190.167.255 
+le-43521838.version-staging.gitlab.org -> 34.73.118.39 
+log.gitlab.net -> 104.18.40.188 172.64.147.68 
+log.gprd.gitlab.net -> 34.149.206.63 
+log.pre.gitlab.net -> 34.98.99.198 
+membrane.svc.gitlab.net -> 104.18.29.238 104.18.28.238 
+meta-tos-dev.tenants.observability.gke.gitlab.net -> 35.211.63.90 
+mimir-gateway-private.ops.gke.gitlab.net -> 10.250.26.65 
+mimir-gateway-private.pre.gke.gitlab.net -> 10.232.20.71 
+mimir.ops.gke.gitlab.net -> 34.117.70.31 
+mimir.pre.gke.gitlab.net -> 34.128.169.249 
+mimir-us-east1.gitlab.net -> 104.18.40.188 172.64.147.68 
+mimir-us-east1.pre.gitlab.net -> 172.64.147.68 104.18.40.188 
+monitoring-log.gitlab.net -> 34.98.99.198 
+new-sentry.gitlab.net -> 104.18.40.188 172.64.147.68 
+new-test.imander-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+new-test.test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+nix.gitlab.net -> hardened-builds-f088fb.gitlab.io. 35.185.44.232 
+nominatorbot.gitlab.net -> 34.138.170.206 
+nonprod-log.gitlab.net -> 34.98.99.198 
+observability-slack-bot.ops.gke.gitlab.net -> 34.50.158.205 
+omamori.sec.gitlab.net -> omamori.trust-safety-live.sec.gitlab.net. 34.120.192.127 
+omamori.trust-safety-dev.sec.gitlab.net -> 34.36.137.70 
+omamori.trust-safety-live.sec.gitlab.net -> 34.120.192.127 
+openbas.armor.cti.sec.gitlab.net -> 34.49.10.178 
+openbas.cti.sec.gitlab.net -> 34.49.10.178 
+opencode-memory.svc.gitlab.net -> 104.18.4.3 104.18.5.3 
+opencti.armor.cti.sec.gitlab.net -> 34.49.10.178 
+opencti.cti.sec.gitlab.net -> 34.49.10.178 
+ops.gitlab.net -> 96937ad1f2104f2a8239f765d9c7302e.pacloudflare.com. 172.65.19.90 
+packages.pre.gitlab.net -> 104.18.40.188 172.64.147.68 
+packhorse-main-gprd.tenants.observability.gke.gitlab.net -> 35.211.179.214 
+packhorse-main-gstg.tenants.observability.gke.gitlab.net -> 35.211.177.30 
+phonebook.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+phonebook.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+policy-framework-preview.gitlab.net -> 34.63.12.103 
+portal.gitlab.net -> 172.64.147.68 104.18.40.188 
+portal.staging.gitlab.net -> 172.64.147.68 104.18.40.188 
+prod.pages-check.gitlab.net -> 35.185.44.232 
+production.teleport.gitlab.net -> teleport-production.ops-central.gke.gitlab.net. 34.27.152.121 
+promlens.gitlab.net -> 34.160.8.21 
+pulp.pre.gitlab.net -> 104.18.40.188 172.64.147.68 
+registry.10k-hybrid-aws-services.testbed.gitlab.net -> 10k-hybrid-aws-services.testbed.gitlab.net. 18.210.182.34 
+registry.10k.testbed.gitlab.net -> 10k.testbed.gitlab.net. 34.73.165.75 
+registry.1k.testbed.gitlab.net -> 1k.testbed.gitlab.net. 35.196.18.43 
+registry.2k.testbed.gitlab.net -> 2k.testbed.gitlab.net. 35.231.125.151 
+registry.3k-hybrid-aws-services.testbed.gitlab.net -> 3k-hybrid-aws-services.testbed.gitlab.net. 52.0.223.85 
+registry.50k.testbed.gitlab.net -> 50k.testbed.gitlab.net. 35.237.211.103 
+registry.gitlab.com -> 35.227.35.254 
+registry.ops.gitlab.net -> 35.238.98.95 
+release-platform-canary.svc.gitlab.net -> 104.18.0.244 104.18.1.244 
+runners-platform.tenants.observability.gke.gitlab.net -> 35.211.194.42 
+rust-svc-template-eks.svc.gitlab.net -> 104.18.4.237 104.18.5.237 
+sahand-eks-test.svc.gitlab.net -> 104.18.1.187 104.18.0.187 
+sahand-gke-test.svc.gitlab.net -> 104.18.11.48 104.18.10.48 
+secrets-manager-gke.svc.gitlab.net -> 104.18.12.104 104.18.13.104 
+security-pager.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+sentry.gitlab.net -> 104.18.40.188 172.64.147.68 
+slackproxy.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+slackproxy.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+snowplowprd.trx.gitlab.net -> snowplowprdnlb-1490493263.us-east-2.elb.amazonaws.com. 77.112.131.85 18.221.187.227 3.151.120.142 18.224.241.217 3.149.91.130 3.15.94.144 77.113.79.130 3.13.42.140 
+snowplowstg-test-san-cert.trx.gitlab.net -> snowplowstgnlb-758150657.us-west-2.elb.amazonaws.com. 32.190.205.251 184.34.202.116 100.22.214.48 
+snowplowstg.trx.gitlab.net -> 104.18.40.188 172.64.147.68 
+snowplow.trx.gitlab.net -> snowplowprdnlb-1490493263.us-east-2.elb.amazonaws.com. 18.224.241.217 18.219.104.126 77.112.131.85 18.221.187.227 3.149.91.130 77.113.79.130 3.151.120.142 3.13.42.140 
+sns.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+srs.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+srs.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+staging.pages-check.gitlab.net -> 35.229.69.78 
+staging.teleport.gitlab.net -> teleport-staging.ops.gke.gitlab.net. 35.243.149.188 
+static-objects.gitlab.net -> 104.18.40.188 172.64.147.68 
+teleport-production.ops-central.gke.gitlab.net -> 34.27.152.121 
+teleport-staging.ops.gke.gitlab.net -> 35.243.149.188 
+test1.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test1.default.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+test2.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test2.default.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+test.adietrich-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test.adietrich-test.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+test.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test.imander-test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test-knative.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test-local.default.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+test.test.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+test.test.primary.secauto-live.sec.gitlab.net -> 34.70.71.242 
+theseus.gitlab.net -> theseus-6298f3.gitlab.io. 35.185.44.232 
+topology-rest.gitlab.net -> 104.18.40.188 172.64.147.68 
+topology-rest.staging.gitlab.net -> 104.18.40.188 172.64.147.68 
+trigger-gke.svc.gitlab.net -> 104.18.18.96 104.18.19.96 
+vault.gitlab.net -> 172.64.147.68 104.18.40.188 
+vault.ops.gke.gitlab.net -> 10.250.26.38 
+vault.pre.gitlab.net -> 104.18.40.188 172.64.147.68 
+vault.pre.gke.gitlab.net -> 10.232.20.105 
+woodhouse.gstg.gitlab.net -> 172.64.147.68 104.18.40.188 
+woodhouse.ops.gitlab.net -> 104.18.40.188 172.64.147.68 
+word.primary.secauto-dev.sec.gitlab.net -> 34.123.229.196 
+workops.gitlab.net -> 35.223.212.132 
+www.gitlab.org -> 188.114.97.5 188.114.96.5 
+zeus-api.sec.gitlab.net -> 8.233.24.99 
+zeus.sec.gitlab.net -> 136.68.244.133 
+zoekt.gprd.gke.gitlab.net -> 10.216.8.36 
+zoekt.gstg.gke.gitlab.net -> 10.224.34.112 

@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:f5:nginx"],"hostnames":["ec2-32-190-205-251.us-west-2.compute.amazonaws.com"],"ip":"32.190.205.251","ports":[443],"tags":["cloud"],"vulns":[]}

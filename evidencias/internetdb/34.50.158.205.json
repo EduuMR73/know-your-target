@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:google:cloud_platform"],"hostnames":["205.158.50.34.bc.googleusercontent.com","observability-slack-bot.ops.gke.gitlab.net"],"ip":"34.50.158.205","ports":[80,443],"tags":["cloud"],"vulns":[]}

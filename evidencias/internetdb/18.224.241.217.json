@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:python:python","cpe:/a:encode:uvicorn","cpe:/a:f5:nginx:1.28.2"],"hostnames":["ec2-18-224-241-217.us-east-2.compute.amazonaws.com"],"ip":"18.224.241.217","ports":[80,443],"tags":["cloud","eol-product"],"vulns":[]}

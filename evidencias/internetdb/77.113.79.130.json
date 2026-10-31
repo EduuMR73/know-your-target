@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:amazon:elastic_load_balancing"],"hostnames":["dicomassist.app","ec2-77-113-79-130.us-east-2.compute.amazonaws.com"],"ip":"77.113.79.130","ports":[443],"tags":["cloud"],"vulns":[]}

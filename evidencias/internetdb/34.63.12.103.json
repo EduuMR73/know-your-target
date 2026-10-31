@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:f5:nginx","cpe:/a:gitlab:gitlab","cpe:/o:canonical:ubuntu_linux","cpe:/a:openbsd:openssh:9.6p1"],"hostnames":["policy-framework-preview.gitlab.net","103.12.63.34.bc.googleusercontent.com"],"ip":"34.63.12.103","ports":[22,80,443],"tags":["cloud","pqc"],"vulns":[]}

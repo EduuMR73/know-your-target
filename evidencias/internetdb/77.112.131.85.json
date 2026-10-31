@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:amazon:elastic_load_balancing","cpe:/a:lightbend:akka_http:10.2.9"],"hostnames":["ec2-77-112-131-85.us-east-2.compute.amazonaws.com","snowplowprd.trx.gitlab.net"],"ip":"77.112.131.85","ports":[80,443],"tags":["cloud"],"vulns":["CVE-2023-33251"]}

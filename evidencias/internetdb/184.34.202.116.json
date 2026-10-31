@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:amazon:elastic_load_balancing"],"hostnames":["ec2-184-34-202-116.us-west-2.compute.amazonaws.com","www.na.dev.api.pelsisdigital.com","dev.api.pelsisdigital.com"],"ip":"184.34.202.116","ports":[80,443],"tags":["cloud"],"vulns":[]}

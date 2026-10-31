@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:google:cloud_platform"],"hostnames":["178.10.49.34.bc.googleusercontent.com","opencti.cti.sec.gitlab.net","opencti.armor.cti.sec.gitlab.net"],"ip":"34.49.10.178","ports":[80,443],"tags":["pqc","cloud"],"vulns":[]}

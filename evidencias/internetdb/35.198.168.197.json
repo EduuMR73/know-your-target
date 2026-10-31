@@ -1,0 +1,1 @@
+{"cpes":["cpe:/o:debian:debian_linux","cpe:/a:openbsd:openssh:9.2p1","cpe:/o:linux:linux_kernel"],"hostnames":["197.168.198.35.bc.googleusercontent.com"],"ip":"35.198.168.197","ports":[22,80],"tags":["cloud"],"vulns":[]}

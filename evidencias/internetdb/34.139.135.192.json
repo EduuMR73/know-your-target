@@ -1,0 +1,1 @@
+{"cpes":["cpe:/a:gitlab:gitlab","cpe:/a:f5:nginx","cpe:/o:canonical:ubuntu_linux","cpe:/a:openbsd:openssh:8.9p1"],"hostnames":["dev.gitlab.org","192.135.139.34.bc.googleusercontent.com"],"ip":"34.139.135.192","ports":[22,80,443,5005],"tags":["pqc","cloud"],"vulns":[]}

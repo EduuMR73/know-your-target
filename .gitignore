@@ -1,0 +1,12 @@
+# Material del profesor y capturas privadas (no se publican)
+*.pdf
+*.png
+
+# Historial crudo del laboratorio: contiene comandos de otra práctica
+# (nmap/ping activos) y un correo personal. Los comandos reales ya están
+# en cuaderno.md
+evidencias/historial_bash.txt
+
+# Temporales
+*.tmp
+*~
