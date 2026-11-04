@@ -333,4 +333,24 @@ Modelo: corsario-1 | URL: http://10.30.0.6:4000/v1/chat/completions
 HTTP 409 -> {"error":{"message":"litellm.APIError: APIError: OpenAIException - instance is stopped ... model group 'corsario-1' failed ... Fallback to _gw_backup_corsario_1 also failed: ... instance is stopped ..."}}
 ```
 
+- **Contraste para descartar un fallo mío** (repetido más tarde el mismo día, con el 409 todavía presente). Se separa cada capa: red, gateway, clave y modelo.
+
+```
+$ curl -s --noproxy '*' http://10.30.0.6:4000/health/liveliness
+"I'm alive!"
+
+$ curl -s --noproxy '*' -o /dev/null -w "HTTP %{http_code}\n" http://10.30.0.6:4000/v1/chat/completions \
+    -H "Authorization: Bearer sk-falso" -H "Content-Type: application/json" \
+    -d '{"model":"corsario-1","messages":[{"role":"user","content":"OK"}]}'
+HTTP 401
+```
+
+| Prueba | Resultado | Qué demuestra |
+|---|---|---|
+| `/health/liveliness` | `"I'm alive!"` | La red y el gateway funcionan; no es un problema de conexión |
+| Clave falsa (`sk-falso`) | HTTP 401 | El gateway comprueba las claves |
+| Mi clave (`probar_ia.py`) | HTTP 409 `instance is stopped` | Mi clave **pasa** la autenticación y el modelo existe; lo que falla es la instancia que lo ejecuta (y su respaldo) |
+
+Si el fallo fuera de conexión, no habría ningún código HTTP (habría un `URLError` o un tiempo agotado). Si la clave fuera mala, sería un 401 como el de la clave falsa. Y si el nombre del modelo estuviera mal, sería un error de "modelo no encontrado", no `instance is stopped`.
+
 **Causa:** la instancia que sirve el modelo `corsario-1` **y también su respaldo** estaban **paradas** (`instance is stopped`, HTTP 409). Es un problema del servidor del aula, no del agente ni de mi configuración. No había ningún `.env` local que interfiriera.
