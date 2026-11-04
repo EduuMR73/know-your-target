@@ -20,6 +20,16 @@ Programa **público y activo**, con **alcance amplio por comodines** (`*.gitlab.
 | [`cuaderno.md`](cuaderno.md) | Cuaderno de trabajo: cada acción con hora (UTC), comando, resultado, **por qué importa** y siguiente paso |
 | [`mapa.md`](mapa.md) | El mapa de superficie de ataque: resumen, dominios y subdominios, infraestructura, correos y **3 puntos de interés** |
 | [`evidencias/`](evidencias/) | Salidas en bruto que respaldan cada dato del mapa |
+| [`agente/`](agente/) | **Parte 2:** el agente `aap-base` extendido. Pruebas del alcance, herramientas propias y prompt |
+| [`comparativa.md`](comparativa.md) | **Parte 3:** yo frente al agente (en curso; incluye predicciones hechas antes de ejecutarlo) |
+
+### Dentro de `agente/`
+
+| Fichero | Contenido |
+|---|---|
+| [`pruebas.md`](agente/pruebas.md) | Comprobación del `scope-guard` (22 casos), herramientas, prompt, límites de gasto y ejecuciones |
+| [`instrucciones.md`](agente/instrucciones.md) | Plantilla del prompt ajustada |
+| `src/` | Mi código: 2 herramientas propias (`ficheros_expuestos`, `infraestructura_dominio`), sus pruebas y los scripts de comprobación |
 
 ### Dentro de `evidencias/`
 
@@ -52,4 +62,4 @@ Todas documentadas en [`cuaderno.md`](cuaderno.md), cada una con su "por qué im
 
 ---
 
-> Parte 2 (First Agent) y Parte 3 (análisis comparativo): en curso.
+> **Estado (2026-11-04):** Parte 2 con 2.1–2.3 completos. 2.4 y 2.5 pendientes de que la IA del aula vuelva a estar disponible (HTTP 409 `instance is stopped`, documentado en [`agente/pruebas.md`](agente/pruebas.md)). Parte 3 en curso.
