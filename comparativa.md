@@ -1,6 +1,6 @@
 # Comparativa · Yo frente al agente
 
-> Comparación entre el reconocimiento manual de la Parte 1 ([`mapa.md`](mapa.md), [`cuaderno.md`](cuaderno.md)) y la ejecución del agente `aap-base` de la Parte 2 ([`agente/informe.md`](agente/informe.md), [`agente/traza.jsonl`](agente/traza.jsonl), [`agente/pruebas.md`](agente/pruebas.md)) contra el mismo objetivo (GitLab, HackerOne) y el mismo [`scope.txt`](scope.txt).
+> Comparación entre el reconocimiento manual de la Parte 1 ([`mapa.md`](mapa.md), [`cuaderno.md`](cuaderno.md)) y la ejecución del agente `aap-base` de la Parte 2 ([`agente/informe.md`](agente/informe.md), [`agente/traza.log`](agente/traza.log), [`agente/pruebas.md`](agente/pruebas.md)) contra el mismo objetivo (GitLab, HackerOne) y el mismo [`scope.txt`](scope.txt).
 
 <!-- ESTADO: esqueleto. La columna "Lo encontré yo" está completa; la del agente se rellena con la traza de la ejecución 2.4. -->
 
@@ -95,7 +95,7 @@ Fechas: yo, del 2026-10-28 al 2026-10-31; el agente, el 2026-11-04 (⏳). Las re
 |---|---|---|
 | Subdominios en alcance | 2132 (247 vivos) | ⏳ |
 | Técnicas cubiertas (de 8) | 8 + 1 opcional | ⏳ |
-| Tiempo | ~1 h 40 min de consultas (2026-10-28 11:50–13:12 y 2026-10-31 17:34–17:46), más varias horas de análisis y redacción del mapa | ⏳ |
+| Tiempo | ~1 h 30 min de consultas (2026-10-28 11:54–13:12 y 2026-10-31 17:34–17:46), más varias horas de análisis y redacción del mapa | ⏳ |
 | Coste | 0 € (herramientas gratuitas; Hunter con cuenta gratuita) | ⏳ tokens de entrada/salida · ⏳ USD (`ia-cupo`) |
 | Llamadas a herramientas / bloqueos | — | ⏳ / ⏳ |
 
