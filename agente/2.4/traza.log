@@ -1,0 +1,32 @@
+# objetivo: Investiga la superficie de ataque de GitLab (su programa de bug bounty en HackerOne) dentro del alcance autorizado. Termina con un informe. · modelo: corsario-1
+[1] modelo → whois_dominio({"dominio": "gitlab.com"})
+    ← Dominio: GITLAB.COM registration: 2004-01-15T19:47:28Z expiration: 2027-01-15T19:47:28Z last changed: 2025-12-11T19:51:56Z last update of RDAP database: 2026-11 ...
+[1] modelo → whois_dominio({"dominio": "gitlab.net"})  [BLOQUEADO]
+    ← BLOQUEADO: gitlab.net está fuera del alcance autorizado.
+[1] modelo → whois_dominio({"dominio": "gitlab.org"})  [BLOQUEADO]
+    ← BLOQUEADO: gitlab.org está fuera del alcance autorizado.
+[1] modelo → whois_dominio({"dominio": "gitlap.com"})  [BLOQUEADO]
+    ← BLOQUEADO: gitlap.com está fuera del alcance autorizado.
+[2] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "NS"})
+    ← jermaine.ns.cloudflare.com. diva.ns.cloudflare.com.
+[2] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "MX"})
+    ← 10 alt4.aspmx.l.google.com. 5 alt1.aspmx.l.google.com. 10 alt3.aspmx.l.google.com. 1 aspmx.l.google.com. 5 alt2.aspmx.l.google.com.
+[2] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "TXT"})
+    ← "mgverify=9549a96a4bc9886fbf483bcd56872eaf2b5b9e690d264024041cf446664cb114" "v=MCPv1; k=ed25519; p=MmZM6XexKcX4jiWqHtn3M0av9Q7HDmonAdP6PqktwX0=" "onetrust-domai ...
+[3] modelo → subdominios_crtsh({"dominio": "gitlab.com"})
+    ← ERROR: crt.sh no respondió (HTTP Error 502: Bad Gateway). crt.sh suele ir lento; puedes reintentar más tarde o añadir otra fuente de subdominios.
+[4] modelo → ficheros_expuestos({"dominio": "gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://gitlab.com/robots.txt) # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt  ...
+[4] modelo → ficheros_expuestos({"dominio": "registry.gitlab.com"})
+    ← /robots.txt -> HTTP 404 (Not Found): no disponible o acceso denegado. /.well-known/security.txt -> HTTP 404 (Not Found): no disponible o acceso denegado.
+[4] modelo → ficheros_expuestos({"dominio": "customers.gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://customers.gitlab.com/robots.txt) # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the  ...
+[4] modelo → ficheros_expuestos({"dominio": "docs.gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://docs.gitlab.com/robots.txt) User-agent: Googlebot Disallow: /review-mr Disallow: /upstream-review-mr Disallow: /1 Di ...
+[4] modelo → ficheros_expuestos({"dominio": "about.gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://about.gitlab.com/robots.txt) # START nuxt-robots (indexable) User-agent: * Disallow: /search/ Disallow: /de-de/searc ...
+[5] modelo → infraestructura_dominio({"dominio": "gitlab.com"})
+    ← gitlab.com resuelve a 1 IP: - 172.65.251.78: puertos [22, 80, 443]; hostnames en alcance ['customers.gitlab.com', 'gitlab.com'] (4 fuera de alcance omitidos); C ...
+[5] modelo → infraestructura_dominio({"dominio": "registry.gitlab.com"})
+    ← registry.gitlab.com resuelve a 1 IP: - 35.227.35.254: puertos [80, 443]; hostnames en alcance ['registry.gitlab.com'] (2 fuera de alcance omitidos); CPE ninguno ...
+# fin en el paso 6 · tokens: {'entrada': 27402, 'salida': 4911}

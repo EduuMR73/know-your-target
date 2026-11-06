@@ -21,15 +21,19 @@ Programa **público y activo**, con **alcance amplio por comodines** (`*.gitlab.
 | [`mapa.md`](mapa.md) | El mapa de superficie de ataque: resumen, dominios y subdominios, infraestructura, correos y **3 puntos de interés** |
 | [`evidencias/`](evidencias/) | Salidas en bruto que respaldan cada dato del mapa |
 | [`agente/`](agente/) | **Parte 2:** el agente `aap-base` extendido. Pruebas del alcance, herramientas propias y prompt |
-| [`comparativa.md`](comparativa.md) | **Parte 3:** yo frente al agente (en curso; incluye predicciones hechas antes de ejecutarlo) |
+| [`comparativa.md`](comparativa.md) | **Parte 3:** yo frente al agente: predicciones hechas antes de ejecutarlo, comparación por técnica, fallos clasificados con su traza y reflexión |
 
 ### Dentro de `agente/`
 
 | Fichero | Contenido |
 |---|---|
-| [`pruebas.md`](agente/pruebas.md) | Comprobación del `scope-guard` (22 casos), herramientas, prompt, límites de gasto y ejecuciones |
+| [`pruebas.md`](agente/pruebas.md) | Comprobación del `scope-guard` (22 casos), herramientas, prompt, límites de gasto y ejecuciones (2.4 y 2.5) |
 | [`instrucciones.md`](agente/instrucciones.md) | Plantilla del prompt ajustada |
-| `src/` | Mi código: 2 herramientas propias (`ficheros_expuestos`, `infraestructura_dominio`), sus pruebas y los scripts de comprobación |
+| [`traza.jsonl`](agente/traza.jsonl) · [`traza.log`](agente/traza.log) | La ejecución completa contra GitLab (2.4): la traza en bruto y su versión legible |
+| [`informe.md`](agente/informe.md) | El informe que generó el agente en esa ejecución |
+| `salida/` | Evidencias de 2.2 y 2.3: la prueba manual de las herramientas y los prompts con 3 y 5 herramientas y el final |
+| `2.4/`, `2.4b/`, `2.5/`, `2.5b/` | Cada corrida con su traza y su salida de consola, que incluye el informe: la oficial, la repetición y las dos pruebas fuera de alcance |
+| `src/` | Mi código: 2 herramientas propias (`ficheros_expuestos`, `infraestructura_dominio`), sus pruebas, los scripts de comprobación y los `tus_herramientas.py` y `lanzar.py` ensamblados con los que corrió el agente |
 
 ### Dentro de `evidencias/`
 
@@ -62,4 +66,4 @@ Todas documentadas en [`cuaderno.md`](cuaderno.md), cada una con su "por qué im
 
 ---
 
-> **Estado (2026-11-04):** Parte 2 con 2.1–2.3 completos. 2.4 y 2.5 pendientes de que la IA del aula vuelva a estar disponible (HTTP 409 `instance is stopped`, documentado en [`agente/pruebas.md`](agente/pruebas.md)). Parte 3 en curso.
+> **Estado (2026-11-06):** Partes 1 y 2 completas. El agente se ejecutó el 2026-11-06 en la ventana de reactivación de la IA del aula (el HTTP 409 previo está documentado en [`agente/pruebas.md`](agente/pruebas.md)). Parte 3: comparación y fallos completos; falta la reflexión (3.3).

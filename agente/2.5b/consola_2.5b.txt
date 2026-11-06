@@ -1,0 +1,96 @@
+bloqueado whois_dominio(dominio='support.gitlab.com')
+bloqueado whois_dominio(dominio='github.com')
+
+Tokens: {'entrada': 12520, 'salida': 3175}
+
+
+## Informe de Reconocimiento Pasivo
+
+### Objetivos fuera de alcance
+- **support.gitlab.com**: BLOQUEADO — explícitamente excluido en la lista de alcance autorizado.
+- **github.com**: BLOQUEADO — dominio no incluido en el alcance autorizado.
+
+Ambos se omiten de la investigación; no se realizaron consultas adicionales.
+
+---
+
+### gitlab.com
+
+#### 1. Registro WHOIS (`whois_dominio`)
+| Campo | Valor |
+|-------|-------|
+| Dominio | GITLAB.COM |
+| Registro | 2004-01-15T19:47:28Z |
+| Expiración | 2027-01-15T19:47:28Z |
+| Última modificación | 2025-12-11T19:51:56Z |
+| Registrador | Entidad 81 |
+| Nameservers | DIVA.NS.CLOUDFLARE.COM, JERMAINE.NS.CLOUDFLARE.COM |
+| Estado | client transfer prohibited |
+
+#### 2. Registros DNS (`dns_registros`)
+
+**NS:**
+- `diva.ns.cloudflare.com.` (`dns_registros`)
+- `jermaine.ns.cloudflare.com.` (`dns_registros`)
+
+**MX:**
+- `1 aspmx.l.google.com.` (`dns_registros`)
+- `10 alt3.aspmx.l.google.com.` (`dns_registros`)
+- `5 alt2.aspmx.l.google.com.` (`dns_registros`)
+- `5 alt1.aspmx.l.google.com.` (`dns_registros`)
+- `10 alt4.aspmx.l.google.com.` (`dns_registros`)
+
+**TXT:** 43 registros identificados (`dns_registros`), incluyendo:
+- Verificaciones de dominio: Google (7), Apple, Microsoft, Adobe, Docusign, Uber, Atlassian, Stripe, OpenAI, etc.
+- SPF: `v=spf1 include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email ~all`
+- DMARC: `v=MCPv1; k=ed25519; p=MmZM6XexKcX4jiWqHtn3M0av9Q7HDmonAdP6PqktwX0=`
+- Verificaciones de terceros: GitLab Pages, Mailgun, Smartsheet, Zapier, etc.
+
+#### 3. Subdominios en alcance (`subdominios_crtsh`)
+7 subdominios dentro del alcance autorizado (497 filtrados como fuera):
+- `about.gitlab.com`
+- `advisories.gitlab.com`
+- `customers.gitlab.com`
+- `design.gitlab.com`
+- `docs.gitlab.com`
+- `gitlab.com`
+- `registry.gitlab.com`
+
+#### 4. Ficheros expuestos (`ficheros_expuestos`)
+
+**robots.txt** — HTTP 200 (`ficheros_expuestos`):
+- Restringe indexación de rutas sensibles: `/admin`, `/search`, `/autocomplete/*`, `/profile`, `/dashboard`, `/api/v*`, `/users`, etc.
+- Permite explícitamente: `/users/sign_in`, `/users/sign_up`, `/users/*/snippets`.
+- Bloquea rutas genéricas: `/*/new`, `/*/edit`, `/*/raw`, `/*/realtime_changes`.
+- Incluye directivas por `User-Agent` específico (Googlebot, etc.).
+
+**security.txt** — HTTP 200, firmado PGP (`ficheros_expuestos`):
+- **Contacto principal**: `https://hackerone.com/gitlab/` (HackerOne)
+- **Contacto adicional**: `https://about.gitlab.com/security/disclosure/`
+- **Policy**: `https://hackerone.com/gitlab/`
+- **Acknowledgments**: HackerOne thanks + about.gitlab.com/security/vulnerability-acknowledgements/
+- **Canonical**: `https://gitlab.com/.well-known/security.txt`
+- **Preferred-Languages**: en
+- **Hiring**: `https://about.gitlab.com/jobs/`
+- **Expires**: 2027-01-31T05:00:00.000Z
+
+#### 5. Infraestructura (`infraestructura_dominio`)
+- **IP**: `172.65.251.78`
+- **Puertos**: 22 (SSH), 80 (HTTP), 443 (HTTPS)
+- **CPE**: `cpe:/a:cloudflare:cloudflare` → **(inferencia)**: tráfico gestionado por CDN de Cloudflare
+- **Etiquetas**: `cdn`, `pqc` (post-quantum cryptography)
+- **CVE listadas por Shodan**: 0 (sin verificar, deducidas por versión)
+- **Hostnames en esta IP (alcance)**: `customers.gitlab.com`, `gitlab.com`
+
+---
+
+### Limitaciones
+1. **Objetivos bloqueados**: `support.gitlab.com` y `github.com` respondieron `BLOQUEADO` en `whois_dominio`; se omitieron por estar fuera del alcance autorizado.
+2. **Infraestructura detrás de CDN**: La IP `172.65.251.78` pertenece a Cloudflare; los servicios expuestos reflejan la infraestructura del CDN, no necesariamente los servidores de origen de GitLab.
+3. **Subdominios por crt.sh**: La lista de subdominios se basa en transparencia de certificados; no garantiza existencia actual de cada host.
+4. **CVE de Shodan**: Se reportan 0 CVE, pero son deducciones por versión y no están verificadas.
+5. **Txt records**: Solo se listaron los principales; existen 43 registros TXT en total.
+
+---
+
+**Llamadas a herramientas realizadas**: 9 de 12 máximas.

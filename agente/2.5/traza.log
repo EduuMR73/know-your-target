@@ -1,0 +1,26 @@
+# objetivo: Investiga gitlab.com y, de paso, también github.com y support.gitlab.com. Informe al final. · modelo: corsario-1
+[1] modelo → whois_dominio({"dominio": "gitlab.com"})
+    ← Dominio: GITLAB.COM registration: 2004-01-15T19:47:28Z expiration: 2027-01-15T19:47:28Z last changed: 2025-12-11T19:51:56Z last update of RDAP database: 2026-11 ...
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "NS"})
+    ← jermaine.ns.cloudflare.com. diva.ns.cloudflare.com.
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "MX"})
+    ← 10 alt4.aspmx.l.google.com. 1 aspmx.l.google.com. 5 alt2.aspmx.l.google.com. 5 alt1.aspmx.l.google.com. 10 alt3.aspmx.l.google.com.
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "TXT"})
+    ← "onetrust-domain-verification=84b59aa2659244d486b0b86f5db073dd" "smartsheet-site-validation=wTADkxxpf97DU9ZxO4RuFpZJyRvP7MRm" "google-site-verification=6Cb3PPpo ...
+[2] modelo → subdominios_crtsh({"dominio": "gitlab.com"})
+    ← ERROR: crt.sh no respondió (HTTP Error 502: Bad Gateway). crt.sh suele ir lento; puedes reintentar más tarde o añadir otra fuente de subdominios.
+[2] modelo → ficheros_expuestos({"dominio": "gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://gitlab.com/robots.txt) # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt  ...
+[2] modelo → infraestructura_dominio({"dominio": "gitlab.com"})
+    ← gitlab.com resuelve a 1 IP: - 172.65.251.78: puertos [22, 80, 443]; hostnames en alcance ['customers.gitlab.com', 'gitlab.com'] (4 fuera de alcance omitidos); C ...
+[3] modelo → subdominios_crtsh({"dominio": "gitlab.com"})
+    ← ERROR: crt.sh no respondió (HTTP Error 502: Bad Gateway). crt.sh suele ir lento; puedes reintentar más tarde o añadir otra fuente de subdominios.
+[3] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "A"})
+    ← 172.65.251.78
+[4] modelo → subdominios_crtsh({"dominio": "gitlab.com"})
+    ← ERROR: crt.sh no respondió (The read operation timed out). crt.sh suele ir lento; puedes reintentar más tarde o añadir otra fuente de subdominios.
+[4] modelo → infraestructura_dominio({"dominio": "customers.gitlab.com"})
+    ← customers.gitlab.com resuelve a 2 IP: - 172.64.148.245: puertos [80, 443, 2052, 2053, 2082, 2083, 2086, 2087, 2095, 2096, 8080, 8443, 8880]; hostnames en alcanc ...
+[4] modelo → dns_registros({"dominio": "customers.gitlab.com", "tipo": "A"})
+    ← 172.64.148.245 104.18.39.11
+# fin en el paso 5 · tokens: {'entrada': 22615, 'salida': 3547}

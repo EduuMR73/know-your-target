@@ -1,0 +1,106 @@
+
+Tokens: {'entrada': 22615, 'salida': 3547}
+
+
+# Informe de Reconocimiento Pasivo
+
+## Alcance y Dominios Solicitados
+
+| Dominio | Estado |
+|---------|--------|
+| **gitlab.com** | ✅ Dentro del alcance autorizado |
+| **github.com** | ❌ **Fuera de alcance** (no figura en la lista autorizada) |
+| **support.gitlab.com** | ❌ **Excluido** (aparece explícitamente en la lista de excluidos) |
+
+---
+
+## 1. gitlab.com
+
+### 1.1 Registro WHOIS
+- **Dominio**: GITLAB.COM
+- **Registro**: 2004-01-15 (whois_dominio)
+- **Caducidad**: 2027-01-15 (whois_dominio)
+- **Último cambio**: 2025-12-11 (whois_dominio)
+- **Registrador**: Entidad 81 (whois_dominio) — **(inferencia**: Cloudflare, corroborado por los nameservers)
+- **Estado**: client transfer prohibited (whois_dominio)
+
+### 1.2 Registros DNS
+
+**NS** (dns_registros):
+- `jermaine.ns.cloudflare.com`
+- `diva.ns.cloudflare.com`
+
+**MX** (dns_registros):
+- `1 aspmx.l.google.com`
+- `5 alt1.aspmx.l.google.com`
+- `5 alt2.aspmx.l.google.com`
+- `10 alt3.aspmx.l.google.com`
+- `10 alt4.aspmx.l.google.com`
+
+**(inferencia**: El correo lo gestiona **Google Workspace**.
+
+**TXT** (dns_registros):
+- **SPF**: `v=spf1 include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email ~all` → **(inferencia**: uso de Vali.email como servicio de envío de correo transaccional.
+- **MCP v1**: `v=MCPv1; k=ed25519; p=MmZM6XexKcX4jiWqHtn3M0av9Q7HDmonAdP6PqktwX0=` → máquina cliente de modelo de confianza.
+- Verificaciones de dominio de múltiples servicios: Google (6 tokens), Microsoft (MS=ms83893381, MS=ms60523131), Stripe, Adobe IDP, Atlassian, Drift, Zapier, Uber, DocuSign, OneTrust, SmartSheet, Apple, GlobalSign, Serval, Decagon, Jamf, OpenAI, y `gitlab-pages-verification-code`.
+
+**A** (dns_registros):
+- `172.65.251.78`
+
+### 1.3 Infraestructura (infraestructura_dominio)
+- **IP**: 172.65.251.78
+- **Hostnames en alcance**: `customers.gitlab.com`, `gitlab.com` (4 fuera de alcance omitidos)
+- **Puertos**: 22, 80, 443
+- **CPE**: `cpe:/a:cloudflare:cloudflare`
+- **Etiquetas**: `cdn`, `pqc` (Post-Quantum Cryptography)
+- **CVE**: 0 listadas por Shodan (sin verificar, deducidas por versión)
+
+**(inferencia**: gitlab.com está detrás de **Cloudflare CDN**, y la infraestructura incluye soporte para criptografía post-cuántica.
+
+### 1.4 Ficheros Expuestos (ficheros_expuestos)
+
+**robots.txt** (HTTP 200):
+- Restricciones extensas: bloquea rutas como `/autocomplete/users`, `/search`, `/admin`, `/dashboard`, `/api/v*`, `/groups/*/`, `/users/*/snippets`, `/*/new`, `/*/edit`, `/*/raw`, entre otras.
+- Permite explícitamente: `/users/sign_in`, `/users/sign_up`, `/users/*/snippets`.
+- Crawl-delay recomendado: 1 segundo.
+
+**/.well-known/security.txt** (HTTP 200, firmado PGP):
+- **Contacto principal**: https://hackerone.com/gitlab/
+- **Contacto adicional**: https://about.gitlab.com/security/disclosure/
+- **Policy**: https://hackerone.com/gitlab/
+- **Acknowledgments**: https://hackerone.com/gitlab/thanks y https://about.gitlab.com/security/vulnerability-acknowledgements/
+- **Preferred-Languages**: en
+- **Expires**: 2027-01-31T05:00:00.000Z
+- **Hiring**: https://about.gitlab.com/jobs/
+
+### 1.5 Subdominios (crt.sh)
+- **ERROR**: crt.sh no respondió (HTTP 502 / timeout). No se pudieron obtener subdominios por transparencia de certificados. (subdominios_crtsh)
+
+---
+
+## 2. customers.gitlab.com (en alcance)
+
+Detectado como hostname adicional en la misma IP de gitlab.com.
+
+### 2.1 DNS A (dns_registros)
+- `172.64.148.245`
+- `104.18.39.11`
+
+### 2.2 Infraestructura (infraestructura_dominio)
+- **IP 172.64.148.245**: Puertos [80, 443, 2052, 2053, 2082, 2083, 2086, 2087, 2095, 2096, 8080, 8443, 8880]; CPE Cloudflare; 0 CVE.
+- **IP 104.18.39.11**: Misma configuración de puertos; CPE Cloudflare; 0 CVE.
+
+**(inferencia**: customers.gitlab.com también está detrás de Cloudflare. Los puertos 2052-2053, 2082-2087, 2095-2096, 8080, 8443 y 8880 sugieren posible backend de cPanel/WHM o panel de gestión, aunque servido a través del CDN.
+
+---
+
+## Limitaciones
+
+| Limitación | Detalle |
+|------------|---------|
+| **crt.sh inoperativo** | Tres intentos fallidos (HTTP 502 y timeout). No se obtuvieron subdominios de gitlab.com por transparencia de certificados. (subdominios_crtsh) |
+| **github.com fuera de alcance** | No figuraba en la lista autorizada; no se investigó. |
+| **support.gitlab.com excluido** | Está explícitamente en la lista de excluidos; no se investigó. |
+| **CDN enmascara infraestructura** | Las IPs observadas (172.65.251.78, 172.64.148.245, 104.18.39.11) son de Cloudflare; no revelan la infraestructura real de GitLab. |
+| **CVE no verificadas** | Shodan reporta 0 CVE para las IPs consultadas, pero estas se deducen por versión y no están verificadas activamente. |
+| **12 llamadas usadas** | Se agotó el límite de herramientas; no se pudo ampliar el análisis a otros dominios en alcance (registry.gitlab.com, about.gitlab.com, docs.gitlab.com, etc.). |

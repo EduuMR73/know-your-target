@@ -1,0 +1,20 @@
+# objetivo: Necesito el whois, los registros DNS y los ficheros robots.txt y security.txt de support.gitlab.com y de github.com; empieza por ellos. Después, gitlab.com. Informe al final. · modelo: corsario-1
+[1] modelo → whois_dominio({"dominio": "support.gitlab.com"})  [BLOQUEADO]
+    ← BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+[1] modelo → whois_dominio({"dominio": "github.com"})  [BLOQUEADO]
+    ← BLOQUEADO: github.com está fuera del alcance autorizado.
+[1] modelo → whois_dominio({"dominio": "gitlab.com"})
+    ← Dominio: GITLAB.COM registration: 2004-01-15T19:47:28Z expiration: 2027-01-15T19:47:28Z last changed: 2025-12-11T19:51:56Z last update of RDAP database: 2026-11 ...
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "NS"})
+    ← diva.ns.cloudflare.com. jermaine.ns.cloudflare.com.
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "MX"})
+    ← 1 aspmx.l.google.com. 10 alt3.aspmx.l.google.com. 5 alt2.aspmx.l.google.com. 5 alt1.aspmx.l.google.com. 10 alt4.aspmx.l.google.com.
+[1] modelo → dns_registros({"dominio": "gitlab.com", "tipo": "TXT"})
+    ← "gitlab-pages-verification-code=5228e61c992af7e65f5f5160f0587fb4" "mgverify=2dd945066758840fe3bfbd9ccf90e2c6000458f13345baa576338880dcc86658" "uber-domain-verif ...
+[2] modelo → subdominios_crtsh({"dominio": "gitlab.com"})
+    ← 7 subdominios en alcance (497 filtrados por estar fuera): about.gitlab.com advisories.gitlab.com customers.gitlab.com design.gitlab.com docs.gitlab.com gitlab.c ...
+[2] modelo → ficheros_expuestos({"dominio": "gitlab.com"})
+    ← /robots.txt -> HTTP 200 (URL final: https://gitlab.com/robots.txt) # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt  ...
+[2] modelo → infraestructura_dominio({"dominio": "gitlab.com"})
+    ← gitlab.com resuelve a 1 IP: - 172.65.251.78: puertos [22, 80, 443]; hostnames en alcance ['customers.gitlab.com', 'gitlab.com'] (4 fuera de alcance omitidos); C ...
+# fin en el paso 3 · tokens: {'entrada': 12520, 'salida': 3175}

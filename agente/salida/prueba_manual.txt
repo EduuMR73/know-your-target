@@ -1,0 +1,76 @@
+bloqueado whois_dominio(dominio='support.gitlab.com')
+bloqueado whois_dominio(dominio='github.com')
+bloqueado dns_registros(dominio='support.gitlab.com')
+bloqueado dns_registros(dominio='github.com')
+bloqueado subdominios_crtsh(dominio='support.gitlab.com')
+bloqueado subdominios_crtsh(dominio='github.com')
+bloqueado ficheros_expuestos(dominio='support.gitlab.com')
+bloqueado ficheros_expuestos(dominio='github.com')
+bloqueado infraestructura_dominio(dominio='support.gitlab.com')
+bloqueado infraestructura_dominio(dominio='github.com')
+=== FUERA de alcance: las 5 herramientas ===
+whois_dominio(dominio='support.gitlab.com') -> BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+whois_dominio(dominio='github.com') -> BLOQUEADO: github.com está fuera del alcance autorizado.
+dns_registros(dominio='support.gitlab.com') -> BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+dns_registros(dominio='github.com') -> BLOQUEADO: github.com está fuera del alcance autorizado.
+subdominios_crtsh(dominio='support.gitlab.com') -> BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+subdominios_crtsh(dominio='github.com') -> BLOQUEADO: github.com está fuera del alcance autorizado.
+ficheros_expuestos(dominio='support.gitlab.com') -> BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+ficheros_expuestos(dominio='github.com') -> BLOQUEADO: github.com está fuera del alcance autorizado.
+infraestructura_dominio(dominio='support.gitlab.com') -> BLOQUEADO: support.gitlab.com está fuera del alcance autorizado.
+infraestructura_dominio(dominio='github.com') -> BLOQUEADO: github.com está fuera del alcance autorizado.
+
+=== DENTRO: ficheros_expuestos(about.gitlab.com) ===
+/robots.txt -> HTTP 200 (URL final: https://about.gitlab.com/robots.txt)
+# START nuxt-robots (indexable)
+User-agent: *
+Disallow: /search/
+Disallow: /de-de/search/
+Disallow: /es/search/
+Disallow: /fr-fr/search/
+Disallow: /it-it/search/
+Disallow: /ja-jp/search/
+Disallow: /ko-kr/search/
+Disallow: /pt-br/search/
+Disallow: /api/
+Disallow: /exp/
+Disallow: /de-de/exp/
+Disallow: /es/exp/
+Disallow: /fr-fr/exp/
+Disallow: /it-it/exp/
+Disallow: /ja-jp/exp/
+Disallow: /ko-kr/exp/
+Disallow: /pt-br/exp/
+
+# Partner papers are noindexed; AI crawlers still fetch and cite page copy, so block the folder.
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: FacebookBot
+User-agent: Google-Extended
+User-agent: ImagesiftBot
+User-agent: PerplexityBot
+User-agent: omgili
+User-agent: omgilibot
+Disallow: /search/
+Disallow: /api/
+Disallow: /exp/
+Disallow: /resources/it-revolution/
+
+Sitemap: https://about.gitlab.com/sitemap.xml
+Sitemap: https://about.gitlab.com/sitemap_index.xml
+# END nuxt-robots
+
+/.well-known/security.txt -> HTTP 404 (Not Found): no disponible o acceso denegado.
+
+=== DENTRO: infraestructura_dominio(dev.gitlab.org) ===
+dev.gitlab.org resuelve a 1 IP:
+- 34.139.135.192: puertos [22, 80, 443, 5005]; hostnames en alcance ['dev.gitlab.org'] (1 fuera de alcance omitidos); CPE ['cpe:/a:ruby-lang:ruby', 'cpe:/o:canonical:ubuntu_linux', 'cpe:/a:openbsd:openssh:8.9p1', 'cpe:/a:f5:nginx', 'cpe:/a:rubyonrails:rails', 'cpe:/a:gitlab:gitlab']; etiquetas ['cloud', 'pqc']; CVE que lista Shodan: 0 (sin verificar, deducidas por versión)

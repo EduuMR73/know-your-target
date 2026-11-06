@@ -1,0 +1,156 @@
+
+
+# Informe de Reconocimiento Pasivo — Superficie de Ataque GitLab
+
+## 1. Registro de Dominio
+
+| Dominio | Estado | Detalles |
+|---------|--------|----------|
+| `gitlab.com` | ✅ En alcance | Registrado 2004-01-15, expira 2027-01-15. Nameservers Cloudflare. Estado: client transfer prohibited. (whois_dominio) |
+| `gitlab.net` | ❌ BLOQUEADO | Fuera del alcance autorizado. (whois_dominio) |
+| `gitlab.org` | ❌ BLOQUEADO | Fuera del alcance autorizado. (whois_dominio) |
+| `gitlap.com` | ❌ BLOQUEADO | Fuera del alcance autorizado. (whois_dominio) |
+
+**Nota:** El alcance autorizado incluye `*.gitlab.net`, `*.gitlab.org` y `*.gitlap.com` (subdominios con wildcard), pero los dominios raíz `.net`, `.org` y `.com` no están autorizados. Solo `gitlab.com` y sus subdominios explícitos listados están en alcance.
+
+---
+
+## 2. Registros DNS de `gitlab.com`
+
+### NS (Name Servers)
+- `jermaine.ns.cloudflare.com`
+- `diva.ns.cloudflare.com`
+  - (dns_registros)
+
+### MX (Correo)
+| Prioridad | Servidor |
+|-----------|----------|
+| 1 | `aspmx.l.google.com` |
+| 5 | `alt1.aspmx.l.google.com` |
+| 5 | `alt2.aspmx.l.google.com` |
+| 10 | `alt3.aspmx.l.google.com` |
+| 10 | `alt4.aspmx.l.google.com` |
+  - (dns_registros)
+  - **(inferencia):** GitLab usa Google Workspace/Gmail para correo.
+
+### TXT (Registros de texto)
+Múltiples registros de verificación de dominio:
+- **SPF:** `v=spf1 include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email ~all` (uso de Vali.email como relay)
+- **Google Site Verification:** 4 tokens distintos
+- **Microsoft:** `MS=ms60523131`, `MS=ms83893381`
+- **Stripe:** `stripe-verification=E331E16D59119AEFB547211475C2E225C1BF6EB8CB885D300536B2852EAD3D74`
+- **Docusign:** `1a7d6818-2cf5-4956-a9fb-c3d2e9a578dd`
+- **Adobe IDP:** `adobe-idp-site-verification=...`
+- **Atlassian:** `atlassian-domain-verification=...`
+- **OpenAI:** `openai-domain-verification=dv-Uq90dak9n7LidGh0WsdFOOUu`
+- **Apple:** `apple-domain-verification=UNUD9vY0Jp9z5TjO`
+- **GitLab Pages:** `gitlab-pages-verification-code=5228e61c992af7e65f5f5160f0587fb4`
+- **MCP/SSH:** `v=MCPv1; k=ed25519; p=MmZM6XexKcX4jiWqHtn3M0av9Q7HDmonAdP6PqktwX0=`
+- **OneTrust, Decagon, Jamf, Smartsheet, Zapier, Uber, Drift, Serval, GlobalSign, ASV, mgverify (Mailgun?):** múltiples tokens
+  - (dns_registros)
+
+---
+
+## 3. Subdominios (crt.sh)
+
+- `gitlab.com`: **ERROR** — crt.sh no respondió (HTTP 502). No se pudo obtener la lista de subdominios desde transparencia de certificados. (subdominios_crtsh)
+
+---
+
+## 4. Ficheros Expuestos (robots.txt / security.txt)
+
+| Host | robots.txt | security.txt |
+|------|-----------|--------------|
+| `gitlab.com` | ✅ HTTP 200 | ✅ HTTP 200 |
+| `registry.gitlab.com` | ❌ HTTP 404 | ❌ HTTP 404 |
+| `customers.gitlab.com` | ✅ HTTP 200 | ❌ HTTP 404 |
+| `docs.gitlab.com` | ✅ HTTP 200 | ❌ HTTP 404 |
+| `about.gitlab.com` | ✅ HTTP 200 | ❌ HTTP 404 |
+| `design.gitlab.com` | No consultado | No consultado |
+| `advisories.gitlab.com` | No consultado | No consultado |
+
+### `gitlab.com` — security.txt (destacado)
+- **Contacto preferente:** HackerOne (`https://hackerone.com/gitlab/`)
+- **Política:** `https://hackerone.com/gitlab/`
+- **Reconocimientos:** `https://hackerone.com/gitlab/thanks`
+- **Expires:** 2027-01-31
+- Firmado con PGP.
+  - (ficheros_expuestos)
+
+### `gitlab.com` — robots.txt (destacado)
+- Rutas desautorizadas para crawlers: `/autocomplete/*`, `/admin`, `/profile`, `/dashboard`, `/users`, `/api/v*`, `/search`, `/*/new`, `/*/edit`, `/*/raw`, etc.
+- Rutas permitidas explícitamente: `/users/sign_in`, `/users/sign_up`, `/users/*/snippets`
+  - (ficheros_expuestos)
+  - **(inferencia):** La ruta `/api/v*` está bloqueada para crawlers, lo que sugiere que la API pública es sensible y probablemente requiere autenticación.
+
+### `customers.gitlab.com` — robots.txt
+- `Allow: /public/`
+- `Disallow: /admins/`
+  - (ficheros_expuestos)
+
+### `docs.gitlab.com` — robots.txt
+- Bloquea review apps (`/review-mr`, `/upstream-review-mr`) y versiones antiguas (`/1`, `/2`, `/3`)
+- Sitemap disponible
+  - (ficheros_expuestos)
+
+### `about.gitlab.com` — robots.txt
+- Bloquea rutas de búsqueda, `/api/`, `/exp/`
+- Bloqueo específico para bots de IA (GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, etc.)
+- Sitemaps disponibles
+  - (ficheros_expuestos)
+
+---
+
+## 5. Infraestructura (Shodan / InternetDB)
+
+### `gitlab.com`
+- **IP:** `172.65.251.78`
+- **Puertos:** 22 (SSH), 80 (HTTP), 443 (HTTPS)
+- **CPE:** `cpe:/a:cloudflare:cloudflare`
+- **Etiquetas:** `cdn`, `pqc` (Post-Quantum Cryptography)
+- **CVE:** 0 listadas (sin verificar)
+- **Hostnames asociados en alcance:** `gitlab.com`, `customers.gitlab.com` (4 fuera de alcance omitidos)
+  - (infraestructura_dominio)
+  - **(inferencia):** El tráfico de GitLab pasa por Cloudflare CDN con soporte PQC. El puerto 22 abierto sugiere acceso SSH posiblemente gestionado por Cloudflare Tunnel (Cloudflare Access/Tunnel).
+
+### `registry.gitlab.com`
+- **IP:** `35.227.35.254`
+- **Puertos:** 80 (HTTP), 443 (HTTPS)
+- **CPE:** ninguno identificado
+- **Etiquetas:** `cloud`
+- **CVE:** 0 listadas (sin verificar)
+- **Hostnames asociados en alcance:** `registry.gitlab.com` (2 fuera de alcance omitidos)
+  - (infraestructura_dominio)
+  - **(inferencia):** IP en rango Google Cloud. El registry de contenedores de GitLab se hospeda en infraestructura cloud, no en Cloudflare.
+
+---
+
+## 6. Resumen de Superficie de Ataque
+
+| Categoría | Hosts en alcance | Observaciones |
+|-----------|------------------|---------------|
+| **Dominio raíz** | `gitlab.com` | Único dominio raíz autorizado. Cloudflare CDN. |
+| **Subdominios explícitos** | `registry.gitlab.com`, `customers.gitlab.com`, `about.gitlab.com`, `docs.gitlab.com`, `design.gitlab.com`, `advisories.gitlab.com` | Solo se consultaron parcialmente. |
+| **Wildcards** | `*.gitlab.net`, `*.gitlab.org`, `*.gitlap.com` | Dominios raíz bloqueados; subdominios con wildcard autorizados pero no explorados (crt.sh error). |
+| **Correo** | Google Workspace | 5 servidores MX Google. |
+| **Política de seguridad** | Solo `gitlab.com` tiene security.txt | Programa de bug bounty en HackerOne. |
+
+### Puntos de entrada identificados
+1. **API REST:** `/api/v*` en `gitlab.com` (bloqueada para crawlers).
+2. **Registry de contenedores:** `registry.gitlab.com` (puertos 80/443 en GCP).
+3. **Customers portal:** `customers.gitlab.com` (ruta `/public/` accesible, `/admins/` restringida).
+4. **SSH:** Puerto 22 abierto en `gitlab.com` (Cloudflare Tunnel probable).
+5. **Verificaciones de terceros:** 30+ servicios verificados en TXT (Google, Microsoft, Stripe, Docusign, Atlassian, OpenAI, Apple, etc.) — posible superficie de integración.
+
+---
+
+## Limitaciones
+
+| Limitación | Impacto |
+|------------|---------|
+| **crt.sh ERROR (502)** | No se pudo obtener lista de subdominios desde transparencia de certificados. Se perdió visibilidad pasiva sobre subdominios activos/históricos de `gitlab.com`. |
+| **gitlab.net, gitlab.org, gitlap.com BLOQUEADOS** | Los dominios raíz de estas TLDs no están en alcance autorizado. Solo los wildcards (`*.gitlab.net`, etc.) están autorizados, pero no se pudo consultar su infraestructura sin dominios raíz. |
+| **Solo 12 llamadas permitidas** | No se pudieron consultar `design.gitlab.com` ni `advisories.gitlab.com` para ficheros expuestos ni infraestructura. |
+| **Shodan sin CVE** | Ambas IPs reportan 0 CVE, pero son deducidas por versión y no verificadas. No se puede descartar vulnerabilidades. |
+| **IPs de terceros** | `172.65.251.78` es Cloudflare CDN; `35.227.35.254` es Google Cloud. No son servidores propios de GitLab necesariamente. |
+| **Subdominios no descubiertos** | Sin crt.sh, se perdieron subdominios adicionales que podrían estar en alcance (ej. `*.gitlab.net`). |

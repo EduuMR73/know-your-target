@@ -40,9 +40,10 @@ $ mkdir -p ~/kyt/raw && cd ~/kyt
 $ curl -s ifconfig.me
 $ which whois dig subfinder theHarvester jq curl
 -> máquina: Kali del laboratorio del instituto (alumno3), con acceso por VPN WireGuard + noVNC
--> IP pública de salida: 90.170.5.6
+-> IP pública de salida: 90.170.x.x (enmascarada en este repo público; ver la nota de abajo)
 -> herramientas disponibles: whois, dig, subfinder, theHarvester, jq, curl (las 6)
-por qué importa: la política de GitLab pide anotar las IP usadas durante la investigación ("keep note of any IP addresses you use"); si GitLab viera tráfico de 90.170.5.6, se puede atribuir a este trabajo. Las salidas en bruto se guardan en ~/kyt/raw/ como evidencia, para que cada dato del mapa se pueda rastrear
+por qué importa: la política de GitLab pide anotar las IP usadas durante la investigación ("keep note of any IP addresses you use"); si GitLab viera tráfico de esa IP, se puede atribuir a este trabajo.
+   · por qué está enmascarada (2026-11-06): la anotación de la IP se cumple igual: si GitLab la pidiera, se le daría completa. En un repo público no aporta nada al lector, y sí identifica la conexión del instituto: cualquiera podría usarla para escanearla, atribuirle tráfico o saber desde dónde trabajamos. Es la misma regla que aplico al objetivo: no publicar datos que no hacen falta (minimización) Las salidas en bruto se guardan en ~/kyt/raw/ como evidencia, para que cada dato del mapa se pueda rastrear
 siguiente: técnica 1, whois de gitlab.com, gitlab.net, gitlab.org y gitlap.com
 
 ### Técnica 1 · Registro del dominio
@@ -89,7 +90,7 @@ $ dig +short gitlab.com A
 -> 172.65.251.78 (el puerto 53 funciona desde el lab, a diferencia del 43)
 siguiente: resto de registros
 
-2026-10-28 11:56 UTC · objetivo: gitlab.com (en alcance), _dmarc.gitlab.com
+2026-10-28 11:56 UTC · objetivo: gitlab.com (en alcance), _dmarc.gitlab.com (no listado; ver la nota del final)
 $ for t in NS A AAAA MX TXT; do dig +short gitlab.com $t | tee -a raw/dns_gitlab.com.txt; done
 $ dig +short _dmarc.gitlab.com TXT | tee -a raw/dns_gitlab.com.txt
 -> NS: diva.ns.cloudflare.com, jermaine.ns.cloudflare.com (coincide con RDAP)
@@ -106,6 +107,7 @@ por qué importa:
    · los TXT revelan los SaaS internos sin tocar nada: identidad (Google, Microsoft, Adobe SSO), Macs gestionados con Jamf, colaboración (Atlassian, Smartsheet, DocuSign, Zapier), correo transaccional (Mailgun), ventas y soporte (Drift, Decagon, Stripe), IA (OpenAI), privacidad (OneTrust)
    · son servicios de TERCEROS -> fuera de alcance ("strictly out of scope"); se usan como contexto y para clasificar subdominios en la técnica 3 (un CNAME a Mailgun, Atlassian, etc. = tercero = fuera)
    · los 3 TXT sin identificar se dejan como "pendiente de investigar", sin suponer de qué son
+   · (nota añadida el 2026-11-06, al revisar) _dmarc.gitlab.com no es un host, sino un nombre DNS donde cada dominio publica su política de correo. Leerlo no envía nada a GitLab (la consulta va a los DNS de Cloudflare) y no es "probar" un subdominio: por eso lo consulto, aunque la decisión 1 de alcance.md deja fuera los subdominios no listados. El agente no puede hacerlo, porque su scope-guard aplica el alcance literal
 siguiente: técnica 3, subdominios (subfinder + crt.sh) de los dominios en alcance
 
 ### Técnica 3 · Subdominios

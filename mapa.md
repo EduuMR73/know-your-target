@@ -7,7 +7,7 @@
 
 ## 1. Resumen
 
-**GitLab Inc.** (EE. UU.) opera su plataforma de forma **multinube con Google Cloud como base** (46 % de las IP), **Cloudflare** como proxy y WAF delante de lo público (45 %) y un uso acotado de **AWS** (9 %). El correo y la identidad de los empleados están en **Google Workspace**, con **DMARC en `reject`** (no se puede suplantar @gitlab.com desde fuera) y herramientas internas tras **Okta**. El alcance real del programa vive casi entero en los **comodines** (`*.gitlab.net` sobre todo): de gitlab.com solo entran 7 subdominios listados uno a uno.
+**GitLab Inc.** (EE. UU.) opera su plataforma de forma **multinube con Google Cloud como base** (46 % de las IP), **Cloudflare** como proxy y WAF delante de lo público (45 %) y un uso acotado de **AWS** (9 %). El correo y la identidad de los empleados están en **Google Workspace**, con **DMARC en `reject`** (no se puede suplantar @gitlab.com desde fuera) y herramientas internas tras **Okta**. El alcance real del programa vive casi entero en los **comodines** (`*.gitlab.net` sobre todo): de gitlab.com solo entran 7 nombres listados uno a uno (la raíz y 6 subdominios).
 
 **Lo más relevante encontrado:**
 - Dos niveles de exposición: lo público y lo crítico está **protegido tras Cloudflare**, pero muchos **entornos de desarrollo, versiones y pruebas** (dev.gitlab.org, `*.env.release`, `*.testbed`, ops) están en **Google Cloud directo y con SSH abierto a internet**, saltándose Teleport, que es su acceso oficial de administradores.
@@ -80,7 +80,7 @@ De aquí salen los **3 puntos de interés** de la sección 5.
 | Otros 598 \*.gitlab.com | — | Sin comodín en gitlab.com (decisión 1) | [T3 · 12:10] |
 
 **Conclusiones de la sección.**
-- La superficie real en alcance está casi entera en los **comodines** (`*.gitlab.net` sobre todo): de gitlab.com solo entran 7 nombres.
+- La superficie real en alcance está casi entera en los **comodines** (`*.gitlab.net` sobre todo): de gitlab.com solo entran 7 nombres (la raíz y 6 subdominios).
 - **Dos niveles de exposición:** las herramientas internas sensibles (Vault, Argo CD, Sentry) están detrás de Cloudflare, pero los **entornos de prueba y de versiones** (dev.gitlab.org, *.env.release, *.testbed, la instancia de ops) están en Google Cloud **directo** y muchos con **SSH abierto a internet**.
 
 ---

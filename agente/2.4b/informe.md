@@ -1,0 +1,125 @@
+
+
+# Informe de Reconocimiento Pasivo — Superficie de Ataque GitLab
+
+## 1. Registro del dominio
+
+**gitlab.com** (`whois_dominio`)
+- **Registro:** 2004-01-15
+- **Caducidad:** 2027-01-15
+- **Nameservers:** `DIVA.NS.CLOUDFLARE.COM`, `JERMAINE.NS.CLOUDFLARE.COM`
+- **Estado:** `client transfer prohibited`
+- **Registrador:** Entidad 81 (Cloudflare)
+
+> ⚠️ **gitlab.net**, **gitlab.org** y **gitlap.com** fueron respondidos como `BLOQUEADO` por `whois_dominio`, por lo que se consideran fuera de alcance práctico para esta auditoría.
+
+---
+
+## 2. Registros DNS — gitlab.com (`dns_registros`)
+
+### NS (Nameservers)
+- `jermaine.ns.cloudflare.com.`
+- `diva.ns.cloudflare.com.`
+
+### MX (Correo)
+| Prioridad | Servidor |
+|-----------|----------|
+| 1 | `aspmx.l.google.com.` |
+| 5 | `alt1.aspmx.l.google.com.` |
+| 5 | `alt2.aspmx.l.google.com.` |
+| 10 | `alt3.aspmx.l.google.com.` |
+| 10 | `alt4.aspmx.l.google.com.` |
+
+→ Correo gestionado por **Google Workspace**.
+
+### TXT (Verificaciones y políticas)
+Se identificaron los siguientes registros relevantes (`dns_registros`):
+- **SPF:** `v=spf1 include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email ~all` → Correo de salida por **Vali Email**.
+- **DMARC:** `v=MCPv1; k=ed25519; p=MmZM6XexKcX4jiWqHtn3M0av9Q7HDmonAdP6PqktwX0=`
+- **Verificaciones de dominio:** Google (6 tokens), Microsoft (`MS=ms83893381`, `MS=ms60523131`), OpenAI, DocuSign, Atlassian, Uber, Jamf, Apple, Stripe, Adobe, OneTrust, Zapier, Drift, Serval, Decagon, GlobalSign.
+- **GitLab Pages:** `gitlab-pages-verification-code=5228e61c992af7e65f5f5160f0587fb4`
+
+---
+
+## 3. Subdominios (`subdominios_crtsh`)
+
+| Dominio | Resultado |
+|---------|-----------|
+| `gitlab.com` | **ERROR** (HTTP 502: Bad Gateway) |
+| `gitlab.net` | **BLOQUEADO** |
+| `gitlab.org` | **BLOQUEADO** |
+
+No se pudo obtener el listado de subdominios por transparencia de certificados.
+
+---
+
+## 4. Ficheros expuestos (`ficheros_expuestos`)
+
+| Dominio | robots.txt | security.txt |
+|---------|------------|--------------|
+| `gitlab.com` | ✅ HTTP 200 | ✅ HTTP 200 |
+| `registry.gitlab.com` | ❌ HTTP 404 | ❌ HTTP 404 |
+| `customers.gitlab.com` | ✅ HTTP 200 | ❌ HTTP 404 |
+| `docs.gitlab.com` | ✅ HTTP 200 | ❌ HTTP 404 |
+
+### Contenido clave de `security.txt` en gitlab.com
+- **Programa de bug bounty:** [HackerOne](https://hackerone.com/gitlab/)
+- **Política de divulgación:** [about.gitlab.com/security/disclosure/](https://about.gitlab.com/security/disclosure/)
+- **Reconocimientos:** [hackerone.com/gitlab/thanks](https://hackerone.com/gitlab/thanks) y [about.gitlab.com/security/vulnerability-acknowledgements/](https://about.gitlab.com/security/vulnerability-acknowledgements/)
+- **Expires:** 2027-01-31
+- **Firmado con PGP** ✅
+
+### Rutas sensibles en `robots.txt` de gitlab.com
+- `/admin` (bloqueado para crawlers)
+- `/api/v*` (API versionada bloqueada)
+- `/*/new`, `/*/edit`, `/*/raw` (rutas genéricas bloqueadas)
+- `/users/sign_in` y `/users/sign_up` (explícitamente permitidos)
+
+### Rutas sensibles en `robots.txt` de customers.gitlab.com
+- `/public/` (permitido)
+- `/admins/` (bloqueado)
+
+---
+
+## 5. Infraestructura (`infraestructura_dominio`)
+
+| Host | IP(s) | Puertos visibles | Plataforma | Notas |
+|------|-------|------------------|------------|-------|
+| `gitlab.com` | 172.65.251.78 | 22, 80, 443 | Cloudflare (CDN + PQC) | SSH expuesto |
+| `registry.gitlab.com` | 35.227.35.254 | 80, 443 | Cloud (GCP/AWS) | Registro de contenedores |
+| `customers.gitlab.com` | 172.64.148.245, 104.18.39.11 | 80, 443, 2052–2096, 8080, 8443, 8880 | Cloudflare (CDN) | Múltiples puertos de cPanel/WHM |
+| `docs.gitlab.com` | 104.18.9.44, 104.18.8.44 | 80, 443, 2052–2096, 8080, 8443, 8880 | Cloudflare (CDN + PQC) | Múltiples puertos de cPanel/WHM |
+| `about.gitlab.com` | 104.18.29.129, 104.18.28.129 | 80, 443, 2052–2096, 8080, 8443, 8880 | Cloudflare (CDN + PQC) | Múltiples puertos de cPanel/WHM |
+| `design.gitlab.com` | 35.185.44.232 | 80, 443 | Cloud (GCP/AWS) | — |
+| `advisories.gitlab.com` | 35.185.44.232 | 80, 443 | Cloud (GCP/AWS) | Comparte IP con design.gitlab.com |
+
+### Observaciones de infraestructura
+- **gitlab.com** es el único host con **SSH (puerto 22)** expuesto directamente. (inferencia: podría ser acceso administrativo o salto hacia servidores internos).
+- **customers.gitlab.com**, **docs.gitlab.com** y **about.gitlab.com** exponen puertos típicos de **cPanel/WHM** (2052–2096, 8080, 8443, 8880), lo que sugiere que estos sitios usan hosting compartido o paneles de control de alojamiento. **(inferencia)**
+- **registry.gitlab.com**, **design.gitlab.com** y **advisories.gitlab.com** resuelven a IPs de cloud providers (35.x.x.x → Google Cloud / AWS) sin CDN intermedio.
+- **design.gitlab.com** y **advisories.gitlab.com** comparten la misma IP (35.185.44.232), lo que sugiere hosting en la misma infraestructura. **(inferencia)**
+- Shodan no reporta CVEs verificadas para ninguno de los hosts (0 CVEs listadas).
+
+---
+
+## 6. Resumen de superficie de ataque
+
+| Categoría | Hallazgos relevantes |
+|-----------|---------------------|
+| **Dominio principal** | `gitlab.com` es el activo central, con security.txt activo que redirige a HackerOne. |
+| **Subdominios en alcance** | `registry.gitlab.com`, `customers.gitlab.com`, `docs.gitlab.com`, `about.gitlab.com`, `design.gitlab.com`, `advisories.gitlab.com` |
+| **CDN vs. origen** | La mayoría de hosts pasan por Cloudflare; `registry.gitlab.com`, `design.gitlab.com` y `advisories.gitlab.com` están en cloud directo. |
+| **Puertos no estándar** | cPanel/WHM expuesto en customers/docs/about (puertos 2052–2096, 8080, 8443, 8880). |
+| **SSH expuesto** | Solo en `gitlab.com` (172.65.251.78:22). |
+| **Integraciones (TXT)** | GitHub, Google, Microsoft, OpenAI, Stripe, Adobe, Atlassian, DocuSign, Uber, Jamf, Apple, Zapier, Drift, OneTrust → cada una es una superficie de integración potencial. |
+| **Ficheros expuestos** | Solo `gitlab.com` expone `security.txt`; los demás solo `robots.txt` o ninguno. |
+
+---
+
+## Limitaciones
+
+1. **crt.sh error:** `subdominios_crtsh` para `gitlab.com` devolvió ERROR (HTTP 502). No se pudo obtener el listado completo de subdominios por transparencia de certificados.
+2. **Dominios bloqueados:** `gitlab.net`, `gitlab.org` y `gitlap.com` fueron respondidos como `BLOQUEADO` por todas las herramientas consultadas, a pesar de que sus subdominios (`*.gitlab.net`, `*.gitlab.org`, `*.gitlap.com`) aparecen en el alcance autorizado. Se consideran fuera de alcance práctico para esta auditoría.
+3. **CVEs no verificadas:** Las CVEs de InternetDB (Shodan) son deducidas por versión y no están verificadas. En este caso, no se reportó ninguna.
+4. **CDN enmascara origen:** Las IPs de Cloudflare pueden ocultar la infraestructura real de GitLab. Los puertos y servicios listados corresponden a la capa CDN, no necesariamente al servidor de origen.
+5. **Límite de llamadas:** Se alcanzaron las 12 llamadas máximas. No se pudo consultar `ficheros_expuestos` para `about.gitlab.com`, `design.gitlab.com` y `advisories.gitlab.com`, ni `infraestructura_dominio` para estos últimos dos de forma adicional.
