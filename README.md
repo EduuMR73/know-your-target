@@ -66,4 +66,4 @@ Todas documentadas en [`cuaderno.md`](cuaderno.md), cada una con su "por qué im
 
 ---
 
-> **Estado (2026-11-06):** Partes 1 y 2 completas. El agente se ejecutó el 2026-11-06 en la ventana de reactivación de la IA del aula (el HTTP 409 previo está documentado en [`agente/pruebas.md`](agente/pruebas.md)). Parte 3: comparación y fallos completos; falta la reflexión (3.3).
+> **Estado (2026-11-11):** Proyecto completo. Partes 1, 2 y 3 terminadas. El agente se ejecutó el 2026-11-06 en la ventana de reactivación de la IA del aula (el HTTP 409 previo está documentado en [`agente/pruebas.md`](agente/pruebas.md)). Parte 3: comparación, fallos y reflexión (3.3) completos.
